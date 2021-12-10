@@ -1,5 +1,5 @@
 ---
- - hosts: server1
+ - hosts: all
   
    tasks:
     - name: ensure the jenkins apt repository key is installed

@@ -1,3 +1,5 @@
-- mail:
-    subject: 'System {{ ansible_hostname }} has been successfully provisioned.'
-  delegate_to: localhost
+---
+- hosts: 172.31.88.63
+  - mail:
+      subject: 'System {{ ansible_hostname }} has been successfully provisioned.'
+    delegate_to: localhost

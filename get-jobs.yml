@@ -13,4 +13,4 @@
       body: "{{CONFIG_XML}}"
       force_basic_auth: yes
       status_code: 201
-      body_format: xml
+      body_format: form-urlencoded

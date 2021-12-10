@@ -1,0 +1,8 @@
+---
+- name: ping localhost
+  hosts: localhost
+  remote_user: ubuntu
+
+  tasks:
+  - name: Example from an Ansible Playbook
+    ansible.builtin.ping:

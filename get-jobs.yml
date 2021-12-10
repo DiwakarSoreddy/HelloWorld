@@ -7,10 +7,10 @@
   - name: Example from an Ansible Playbook
     uri:
       url: "http://184.72.107.42:8080/createItem?name={{JOB_NAME}}"
-      user: {{ JENKINS_USER }}
-      password: {{ JENKINS_PASSWORD }}
+      user: "{{JENKINS_USER}}"
+      password: "{{JENKINS_PASSWORD}}"
       method: POST
-      body: "{{ CONFIG_XML }}"
+      body: "{{CONFIG_XML}}"
       force_basic_auth: yes
       status_code: 201
       body_format: xml

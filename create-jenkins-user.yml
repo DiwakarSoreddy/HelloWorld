@@ -10,4 +10,4 @@
       mode: '0775'
       
   - name: Create Jenkins user
-    shell: " echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("{{JENKINS_USER}}", "{{JENKINS_PASSWORD}}" )' | java -jar /tmp/jenkins-cli.jar -auth "{{JENKINS_ADMIN_USER}}":"{{JENKINS_ADMIN_PASSWORD}}"  -s http://localhost:8080/ groovy = "
+    shell:  echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("{{JENKINS_USER}}", "{{JENKINS_PASSWORD}}" )' | java -jar /tmp/jenkins-cli.jar -auth "{{JENKINS_ADMIN_USER}}":"{{JENKINS_ADMIN_PASSWORD}}"  -s http://localhost:8080/ groovy = 

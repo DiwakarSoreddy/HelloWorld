@@ -1,2 +1,14 @@
 ---
-create jenkins user from ansible
+- name: ping localhost
+  hosts: localhost
+  remote_user: ubuntu
+
+  tasks:
+  - name: Download foo.conf
+    get_url:
+      url: http://localhost:8080/jnlpJars/jenkins-cli.jar 
+      dest: /tmp/jenkins-cli.jar 
+      mode: '0775'
+      
+  - name: Create Jenkins user
+    shell: " echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount({{JENKINS_USER}}, {{JENKINS_PASSWORD}})' | java -jar jenkins-cli.jar -s http://localhost:8080/ groovy = "

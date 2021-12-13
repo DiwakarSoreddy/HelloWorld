@@ -1,15 +1,15 @@
 ---
-- name: Create jenkins user
+- name: Creating jenkins user from ansible tower
   hosts: 172.31.88.63
   remote_user: ec2-user
   tasks:
-  - name: Download foo.conf
+  - name: Download jenkins cli jar
     get_url:
       url: http://localhost:8080/jnlpJars/jenkins-cli.jar 
       dest: /tmp/jenkins-cli.jar 
       mode: '0775'
       
-  - name: Create Jenkins user
+  - name: Create Jenkins user / there is no uri support in jenkins to create user
     shell:  echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("{{JENKINS_USER}}", "{{JENKINS_PASSWORD}}" )' | java -jar /tmp/jenkins-cli.jar -auth "{{JENKINS_ADMIN_USER}}":"{{JENKINS_ADMIN_PASSWORD}}"  -s http://localhost:8080/ groovy = 
 
   - mail:
@@ -19,4 +19,4 @@
       password: "{{MAIL_PASSWORD}}"
       to: "{{MAIL_TO}}"
       subject: User create
-      body: 'User "{{ JENKINS_USER }}" has been successfully provisioned.'
+      body: 'User in Jenkins "{{ JENKINS_USER }}" has been successfully provisioned.'

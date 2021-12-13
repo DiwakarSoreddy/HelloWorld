@@ -9,7 +9,7 @@
       dest: /tmp/jenkins-cli.jar 
       mode: '0775'
       
-  - name: Create Jenkins user / there is no uri support in jenkins to create user
+  - name: Create Jenkins user / there is no uri(api) support in jenkins to create user
     shell:  echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("{{JENKINS_USER}}", "{{JENKINS_PASSWORD}}" )' | java -jar /tmp/jenkins-cli.jar -auth "{{JENKINS_ADMIN_USER}}":"{{JENKINS_ADMIN_PASSWORD}}"  -s http://localhost:8080/ groovy = 
 
   - mail:

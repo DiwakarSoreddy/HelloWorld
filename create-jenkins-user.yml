@@ -11,3 +11,12 @@
       
   - name: Create Jenkins user
     shell:  echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("{{JENKINS_USER}}", "{{JENKINS_PASSWORD}}" )' | java -jar /tmp/jenkins-cli.jar -auth "{{JENKINS_ADMIN_USER}}":"{{JENKINS_ADMIN_PASSWORD}}"  -s http://localhost:8080/ groovy = 
+
+  - mail:
+    host: smtp.gmail.com
+    port: 587
+    username: {{MAIL_ID}}
+    password: {{MAIL_PASSWORD}}
+    to: {{MAIL_TO}}
+    subject: User create
+    body: 'User {{ JENKINS_USER }} has been successfully provisioned.'

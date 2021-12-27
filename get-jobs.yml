@@ -6,7 +6,7 @@
   tasks:
   - name: Example from an Ansible Playbook
     uri:
-      url: "http://3.86.42.177:8080/createItem?name={{JOB_NAME}}"
+      url: "http://3.86.42.177:8080/crumbIssuer/createItem?name={{JOB_NAME}}"
       user: "{{JENKINS_USER}}"
       password: "{{JENKINS_PASSWORD}}"
       method: POST
@@ -14,3 +14,5 @@
       force_basic_auth: yes
       status_code: 201
       body_format: form-urlencoded
+      
+      # http://jenkins-url:8080/crumbIssuer/api/json --user <username>:<password>

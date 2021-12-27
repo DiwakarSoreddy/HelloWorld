@@ -1,5 +1,10 @@
 ---
 - hosts: 172.31.88.63
   - mail:
-      subject: 'System {{ ansible_hostname }} has been successfully provisioned.'
-    delegate_to: localhost
+      host: smtp.gmail.com
+      port: 587
+      username: "{{MAIL_ID}}"
+      password: "{{MAIL_PASSWORD}}"
+      to: "{{MAIL_TO}}"
+      subject: User create
+      body: 'User in  "{{ ansible_hostname }}" has been successfully provisioned.'

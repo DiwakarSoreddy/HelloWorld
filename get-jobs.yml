@@ -6,7 +6,7 @@
   tasks:
   - name: Example from an Ansible Playbook
     uri:
-      url: "http://3.83.97.10:8080/createItem?name={{JOB_NAME}}"
+      url: "http://3.86.42.177:8080/createItem?name={{JOB_NAME}}"
       user: "{{JENKINS_USER}}"
       password: "{{JENKINS_PASSWORD}}"
       method: POST

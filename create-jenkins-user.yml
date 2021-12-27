@@ -14,7 +14,8 @@
     register: jenkinsUsers
   - debug: 
     var=jenkinsUsers
-    when: jenkinsUsers.stdout != "{{JENKINS_USER}}"
+    shell: echo 'jenkinsUsers.stdout'
+    #when: jenkinsUsers.stdout != {{JENKINS_USER}}
   - mail:
       host: smtp.gmail.com
       port: 587

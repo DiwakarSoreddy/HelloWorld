@@ -7,4 +7,4 @@
       password: "{{MAIL_PASSWORD}}"
       to: "{{MAIL_TO}}"
       subject: User create
-      body: 'User in  "{{ ansible_hostname }}" has been successfully provisioned.'
+      body: 'User in  "{{ MAIL_ID }}" has been successfully provisioned.'
